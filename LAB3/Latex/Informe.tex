@@ -1,0 +1,51 @@
+\documentclass[12pt, letterpaper, oneside]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{vmargin}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{lipsum}
+\usepackage{geometry}
+\usepackage{enumitem}
+\usepackage{wrapfig}
+\usepackage{subcaption}
+\usepackage{url}
+\usepackage{datetime}
+\usepackage{float}
+\usepackage[hidelinks]{hyperref}
+
+\newdateformat{monthyeardate}{%
+	\monthname[\THEMONTH], \THEYEAR}
+	
+\setpapersize{A4}
+\setmargins{2.2cm}			%Márgen izquierdo
+			{2cm}			%Márgen superior
+			{16.5cm}		%Ancho del área de impresión
+			{23.42cm}		%Longitud del área de impresión
+				{14pt}		%Encabezado
+			{5mm}			%Espacio entre el encabezado y el documento
+			{2pt}			%Pié de página
+			{5mm}			%Espacio entre el pié de página y el documento 
+			
+\begin{document}
+
+	\include{Carátula}
+	
+	%--Encabezado y Pié de Página--%
+	\pagestyle{fancy}
+	\lhead{Síntesis de Redes Activas}
+	\rhead{Año 2024}
+	\renewcommand{\footrulewidth}{0.08pt}
+	
+	\tableofcontents
+	\pagebreak
+	
+	\include{Contenido}
+	
+\end{document}
