@@ -435,21 +435,52 @@
     
     Para este análisis se colocarán los valores comerciales de los componentes pasivos con las tolerancias dadas anteriormente.\\
 
-    \begin{figure}[ht]
+    \begin{figure}[!ht]
         \centering
         \includegraphics[height=5cm]{Imágenes/completo.png}
         \caption{Circuíto a Simular}
     \end{figure}
 
-    \begin{figure}[ht]
+    \begin{figure}[!ht]
         \centering
-        \includegraphics[height=8cm]{Imágenes/montecarlo.png}
+        \includegraphics[height=8.5cm]{Imágenes/montecarlo.png}
         \caption{Simulación Monte-Carlo}
     \end{figure}
 
-    \begin{figure}[ht]
+    \begin{figure}[!ht]
         \centering
-        \includegraphics[height=8cm]{Imágenes/montecarlo2.png}
+        \includegraphics[height=8.5cm]{Imágenes/montecarlo2.png}
         \caption{Zoom Monte-Carlo}
     \end{figure}
-    
+
+    \clearpage
+    \subsubsection{Mediciones}
+    Se realizó el circuíto en físico con los valores más cercanos a los calculados y se procedió a realizar mediciones para graficar su respuesta en frecuencia.\\
+
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[height=3cm]{Imágenes/pcb.png}
+        \caption{Diseño del Circuíto}
+    \end{figure}
+
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[height=6cm]{Imágenes/medicion.jpeg}
+        \caption{Circuíto en Físico}
+    \end{figure}
+
+    Como se ven, hay valores de resistencias que no se han podido conseguir, es por ellos que la respuesta puede diferir con respecto a lo simulado.\\
+
+    Con una tensión de entrada de 1[Vp] sinusoidal, se obtuvo la siguiente salida, variando la frecuencia de entrada desde 100 [Hz] hasta 10[KHz] se obtienen los siguientes gráficos de respuesta.\\
+
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[height=8cm]{Imágenes/rtaFrec1.png}
+        \caption{Respuesta Tensión de salida}
+    \end{figure}
+
+    \begin{figure}[!ht]
+        \centering
+        \includegraphics[height=8cm]{Imágenes/rtaFrec2.png}
+        \caption{Respuesta en dB}
+    \end{figure}
