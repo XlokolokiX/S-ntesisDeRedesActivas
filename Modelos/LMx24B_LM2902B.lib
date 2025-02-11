@@ -1,0 +1,556 @@
+* LMx24B_LM2902B
+************************************************************************************************************************
+* (C) Copyright 2022 Texas Instruments Incorporated. All rights reserved.     
+************************************************************************************************************************
+** This model is designed as an aid for customers of Texas Instruments.      
+** TI and its licensors and suppliers make no warranties, either expressed   
+** or implied, with respect to this model, including the warranties of       
+** merchantability or fitness for a particular purpose. The model is        
+** provided solely on an "as is" basis. The entire risk as to its quality   
+** and performance is with the customer
+************************************************************************************************************************
+* Released by: Jerry M
+* Date: 11/2/2023
+* Part: LMx24B_LM2902B
+*
+* Top Level Model: LMx24B_LM2902B
+* Model Verison: A
+*
+************************************************************************************************************************
+
+************************************************************************************************************************
+.SUBCKT LMx24B_LM2902B INM INP VCC VEE OUT
+****************************************
+* Models
+.MODEL R_NOISELESS RES (T_ABS=-273.15)
+****************************************
+* Components
+C_C_CMN MID ESDN 1.5P 
+C_C_CMP ESDP MID 1.5P 
+C_C_CMP1 MID N886175 1F 
+C_C_DIFF ESDN ESDP 100F 
+C_C_VCLP VCLP MID 100P 
+C_C_VIMON MID VIMON 1N 
+C_C_VOUT_S MID VOUT_S 1P 
+C_C1 N818555 N818545 159.2F 
+C_C1A8 N889526 N889530 200F 
+C_C2 MID N881716 69F 
+C_C3 MID N881748 7F 
+C_C17 MID N940823 1E-12 
+C_C18 MID N940881 1E-12 
+C_C19 MID SW_OL 10P 
+C_C20 CLAMP MID 16.9N 
+C_C33 N859270 0 1E-15 
+C_C34 N859098 0 10u
+C_C35 N859308 0 1E-15 
+** DELETE PSRR- Cap
+C_C36 N818503 N818493 53.05P 
+*******************
+* DELETE PSRR+ Cap
+C_C37 N818511 N818519 3.979P 
+*********************
+C_C38 MID N897437 1F 
+C_C39 N897473 MID 1F 
+C_C40 MID N912941 1F 
+C_C41 N913049 MID 1F 
+C_C42 MID N915938 1F 
+C_C43 MID N916116 1F 
+C_C44 MID N929369 1F 
+C_C45 N926696 MID 1F 
+C_C46 MID N926656 1F 
+E_E2 N880139 MID CL_CLAMP MID 1
+E_E3 N900123 MID OUT MID 1
+E_E6 MID 0 N859098 0 1
+G_G7 N881748 MID N881716 MID -1U
+G_G10 N939600 MID N939560 MID -1
+G_G11 N939616 MID N939566 MID -1
+G_G12 VSENSE MID CLAMP MID -1M
+G_G15 CLAW_CLAMP MID N881748 MID -1E-3
+G_G16 CL_CLAMP MID CLAW_CLAMP MID -1E-3
+G_G36 VCC_B 0 VCC 0 -1
+G_G37 VEE_B 0 VEE 0 -1
+G_G54 N881716 MID VSENSE MID -1U
+G_G57 N889526 MID CL_CLAMP N889690 -89
+* DELETE CMRR Gain Knob
+G_G58 N818545 MID ESDP MID -3.55M 
+G_G60 N819355 N819347 N818555 MID -1M
+G_G61 N819339 N819331 N818511 N818503 -1M
+** DELETE PSRR- Knob
+G_G62 N818493 MID VEE_B MID -118.6M
+**
+** DELETE PSRR+ Knob
+G_G63 N818519 MID VCC_B MID -8.891M
+**
+G_G64 VEE_CLP MID N916116 MID -1M
+G_G65 VCC_CLP MID N915938 MID -1M
+I_I_B N856591 MID DC -15.5N
+I_I_OS ESDN MID DC -15N
+I_I_Q VCC VEE DC 275U
+R_R_VCLP N880139 VCLP R_NOISELESS 100 
+R_R_VIMON VIMON N900095 R_NOISELESS 100 
+R_R_VOUT_S VOUT_S N900123 R_NOISELESS 100 
+R_R1 ESDP INP R_NOISELESS 10M 
+R_R1A9 N889530 N889526 R_NOISELESS 10K 
+R_R2 ESDN INM R_NOISELESS 10M 
+R_R2A9 MID N889530 R_NOISELESS 1K 
+R_R3 MID ESDP R_NOISELESS 1T 
+R_R4 ESDN MID R_NOISELESS 1T 
+R_R9 N819355 N819331 R_NOISELESS 1E-3 
+R_R10 ESDN N856831 R_NOISELESS 1E-3 
+R_R25 MID N819892 R_NOISELESS 1T 
+R_R26 N819794 MID R_NOISELESS 1T 
+R_R47 MID N939600 R_NOISELESS 1 
+R_R48 MID N939616 R_NOISELESS 1 
+R_R56 N940823 OLP R_NOISELESS 100 
+R_R57 N940881 OLN R_NOISELESS 100 
+R_R58 N940861 MID R_NOISELESS 1 
+R_R59 N940861 SW_OL R_NOISELESS 100 
+R_R60 MID N879387 R_NOISELESS 1E6 
+R_R61 MID CLAMP R_NOISELESS 1E6 
+R_R62 MID VSENSE R_NOISELESS 1K 
+R_R65 MID CLAW_CLAMP R_NOISELESS 1E3 
+R_R66 MID CL_CLAMP R_NOISELESS 1E3 
+R_R81 MID N900095 R_NOISELESS 1E9 
+R_R83 MID N900123 R_NOISELESS 1E9 
+R_R107 VCC_B 0 R_NOISELESS 1 
+R_R108 N859098 0 R_NOISELESS 1E12 
+R_R109 VEE_B 0 R_NOISELESS 1 
+R_R110 VCC_B N859270 R_NOISELESS 1E-3 
+R_R111 N859270 N859098 R_NOISELESS 1E6 
+R_R112 N859098 N859308 R_NOISELESS 1E6 
+R_R113 N859308 VEE_B R_NOISELESS 1E-3 
+R_R133 N881748 MID R_NOISELESS 1MEG 
+R_R134 N881716 MID R_NOISELESS 1MEG 
+R_R137 MID N889526 R_NOISELESS 1 
+R_R140 MID N889676 R_NOISELESS 1 
+R_R141 N818545 MID R_NOISELESS 1 
+R_R142 N818545 N818555 R_NOISELESS 100MEG 
+* DELETE CMRR RESISTOR KNOB
+R_R143 MID N818555 R_NOISELESS 500K 
+*
+R_R145 N819355 N819347 R_NOISELESS 1K 
+R_R146 N819339 N819331 R_NOISELESS 1K 
+R_R147 N818493 N818503 R_NOISELESS 100MEG 
+R_R148 N818493 MID R_NOISELESS 1 
+
+* DELETE PSRR- Resistor Knob
+R_R149 MID N818503 R_NOISELESS 1.5k 
+************************************
+R_R150 N818519 N818511 R_NOISELESS 100MEG 
+R_R151 N818519 MID R_NOISELESS 1 
+
+* DELETE PSRR+ RESISTOR KNOB
+R_R152 MID N818511 R_NOISELESS 20K 
+**********************************
+R_R153 N882981 MID R_NOISELESS 1 
+R_R154 N882981 N886175 R_NOISELESS 1M 
+R_R155 N892351 N897473 R_NOISELESS 1M 
+R_R156 N892351 MID R_NOISELESS 1 
+R_R157 N892371 N897437 R_NOISELESS 1M 
+R_R158 N892371 MID R_NOISELESS 1 
+R_R159 N893939 MID R_NOISELESS 1T 
+R_R160 N893933 MID R_NOISELESS 1T 
+R_R162 N912913 MID R_NOISELESS 1 
+R_R163 N912913 N912941 R_NOISELESS 1M 
+R_R164 N913075 N913049 R_NOISELESS 1M 
+R_R165 N913075 MID R_NOISELESS 1 
+R_R166 N915910 VCC_B R_NOISELESS 1K 
+R_R167 N915910 N915938 R_NOISELESS 1M 
+R_R168 N916088 VEE_B R_NOISELESS 1K 
+R_R169 N916088 N916116 R_NOISELESS 1M 
+R_R170 VEE_CLP MID R_NOISELESS 1K 
+R_R171 MID VCC_CLP R_NOISELESS 1K 
+R_R172 MID VCC_CLP R_NOISELESS 1G 
+R_R173 MID VEE_CLP R_NOISELESS 1G 
+R_R174 N926570 MID R_NOISELESS 1T 
+R_R175 N926628 MID R_NOISELESS 1 
+R_R176 VSENSE N929369 R_NOISELESS 1M 
+R_R177 N926722 N926696 R_NOISELESS 1M 
+R_R178 N926722 MID R_NOISELESS 1 
+R_R179 N926784 MID R_NOISELESS 1T 
+R_R180 N926628 N926656 R_NOISELESS 1M 
+R_RDUMMY MID N889690 R_NOISELESS 3K 
+R_RX N889690 N889676 R_NOISELESS 30K 
+V_V_ORN N939560 VCLP -10.2
+V_V_ORP N939566 VCLP 10.2
+V_V1 N893939 MID 60
+V_V2 N893933 MID -60
+V_V3 N926570 MID 80
+V_V4 N926784 MID -80
+V_VCM_MAX N819794 VCC_B -1.5
+V_VCM_MIN N819892 VEE_B 0
+V_VOS N819347 N856591 236U
+X_H1 N939600 N939604 OLN MID LOWER_LEVEL_H1_LMx24B_LM2902B
+X_H2 N939616 N939610 OLP MID LOWER_LEVEL_H2_LMx24B_LM2902B
+X_H3 OUT N889690 N900095 MID LOWER_LEVEL_H3_LMx24B_LM2902B
+X_S2 SW_OL MID N889526 N889530 LOWER_LEVEL_S2_LMx24B_LM2902B
+X_S3 OUT VCC OUT VCC LOWER_LEVEL_S3_LMx24B_LM2902B
+X_S4 VEE OUT VEE OUT LOWER_LEVEL_S4_LMx24B_LM2902B
+X_S5 CLAMP N939610 CLAMP N939610 LOWER_LEVEL_S5_LMx24B_LM2902B
+X_S6 N939604 CLAMP N939604 CLAMP LOWER_LEVEL_S6_LMx24B_LM2902B
+X_S7 VEE ESDN VEE ESDN LOWER_LEVEL_S7_LMx24B_LM2902B
+X_S8 VEE ESDP VEE ESDP LOWER_LEVEL_S8_LMx24B_LM2902B
+X_U1 ESDP N856591 VNSE_LMx24B_LM2902B
+X_U2 MID ESDN FEMT_LMx24B_LM2902B
+X_U3 MID N856591 FEMT_LMx24B_LM2902B
+X_U4 N819339 MID N882981 MID N819794 N819892 VCM_CLAMP_LMx24B_LM2902B
+X_U5 N886175 N856831 MID N879387 AOL_1_LMx24B_LM2902B
+X_U6 N879387 MID MID CLAMP AOL_2_LMx24B_LM2902B
+X_U7 MID N940861 N940881 N940823 OL_SENSE_LMx24B_LM2902B
+X_U8 N893939 N893933 VIMON MID N892371 N892351 CLAMP_AMP_LO_LMx24B_LM2902B
+X_U9 N897437 N897473 CL_CLAMP MID CL_SRC_LMx24B_LM2902B
+X_U10 N889530 MID MID N889676 ZO_SRC_LMx24B_LM2902B
+X_U11 VCC_CLP VEE_CLP VOUT_S MID N912913 N913075 CLAMP_AMP_LO_LMx24B_LM2902B
+X_U13 VIMON MID N915910 VCC_B CLAWP_LMx24B_LM2902B
+X_U14 MID VIMON VEE_B N916088 CLAWN_LMx24B_LM2902B
+X_U15 N926570 N926784 N929369 MID N926628 N926722 CLAMP_AMP_HI_LMx24B_LM2902B
+X_U16 N926656 N926696 CLAMP MID GR_SRC_LMx24B_LM2902B
+X_U17 N912941 N913049 CLAW_CLAMP MID CLAW_SRC_LMx24B_LM2902B
+X_U18 VIMON MID MID VCC IQ_SRC_LMx24B_LM2902B
+X_U19 MID VIMON VEE MID IQ_SRC_LMx24B_LM2902B
+.ENDS LMx24B_LM2902B
+************************************************************************************************************************
+
+************************************************************************************************************************
+.SUBCKT AOL_1_LMx24B_LM2902B VC+ VC- IOUT+ IOUT-
+****************************************
+* Parameters
+.PARAM GAIN=1E-4
+.PARAM INEG=-.5
+.PARAM IPOS=.5
+****************************************
+* Components
+G1 IOUT+ IOUT- VALUE={LIMIT(GAIN*V(VC+,VC-),INEG,IPOS)}
+.ENDS AOL_1_LMx24B_LM2902B
+************************************************************************************************************************
+
+************************************************************************************************************************
+.SUBCKT AOL_2_LMx24B_LM2902B VC+ VC- IOUT+ IOUT-
+****************************************
+* Parameters
+.PARAM GAIN=1.73E-3
+.PARAM INEG=-0.011
+.PARAM IPOS=0.011
+****************************************
+* Components
+G1 IOUT+ IOUT- VALUE={LIMIT(GAIN*V(VC+,VC-),INEG,IPOS)}
+.ENDS AOL_2_LMx24B_LM2902B
+************************************************************************************************************************
+
+************************************************************************************************************************
+.SUBCKT CL_SRC_LMx24B_LM2902B VC+ VC- IOUT+ IOUT-
+****************************************
+* Parameters
+.PARAM GAIN=1
+.PARAM INEG=-360E-3
+.PARAM IPOS=360E-3
+****************************************
+* Components
+G1 IOUT+ IOUT- VALUE={LIMIT(GAIN*V(VC+,VC-),INEG,IPOS)}
+.ENDS CL_SRC_LMx24B_LM2902B
+************************************************************************************************************************
+
+************************************************************************************************************************
+.SUBCKT CLAMP_AMP_HI_LMx24B_LM2902B VC+ VC- VIN COM VO+ VO-
+****************************************
+* Parameters
+.PARAM G=10
+****************************************
+* Components
+GVo+ COM Vo+ Value = {IF(V(VIN,COM)>V(VC+,COM),((V(VIN,COM)-V(VC+,COM))*G),0)}
+GVo- COM Vo- Value = {IF(V(VIN,COM)<V(VC-,COM),((V(VC-,COM)-V(VIN,COM))*G),0)}
+*GVO+ COM VO+ VALUE = {MAX(((V(VIN,COM)-V(VC+,COM))*G),0)}
+*GVO- COM VO- VALUE = {MAX(((V(VC-,COM)-V(VIN,COM))*G),0)}
+.ENDS CLAMP_AMP_HI_LMx24B_LM2902B
+************************************************************************************************************************
+
+************************************************************************************************************************
+.SUBCKT CLAMP_AMP_LO_LMx24B_LM2902B VC+ VC- VIN COM VO+ VO-
+****************************************
+* Parameters
+.PARAM G=1
+****************************************
+* Components
+GVo+ COM VO+ VALUE = {IF(V(VIN,COM)>V(VC+,COM),((V(VIN,COM)-V(VC+,COM))*G),0)}
+GVo- COM VO- VALUE = {IF(V(VIN,COM)<V(VC-,COM),((V(VC-,COM)-V(VIN,COM))*G),0)}
+*GVo+ COM VO+ VALUE = {MAX(((V(VIN,COM)-V(VC+,COM))*G),0)}
+*GVo- COM VO- VALUE = {MAX(((V(VC-,COM)-V(VIN,COM))*G),0)}
+.ENDS CLAMP_AMP_LO_LMx24B_LM2902B
+************************************************************************************************************************
+
+************************************************************************************************************************
+.SUBCKT CLAW_SRC_LMx24B_LM2902B VC+ VC- IOUT+ IOUT-
+****************************************
+* Parameters
+.PARAM GAIN=1
+.PARAM INEG=-180E-3
+.PARAM IPOS=180E-3
+****************************************
+* Components
+G1 IOUT+ IOUT- VALUE={LIMIT(GAIN*V(VC+,VC-),INEG,IPOS)}
+.ENDS CLAW_SRC_LMx24B_LM2902B
+************************************************************************************************************************
+
+************************************************************************************************************************
+.SUBCKT CLAWN_LMx24B_LM2902B VC+ VC- IOUT+ IOUT-
+****************************************
+* Components
+G1 IOUT+ IOUT- TABLE {(V(VC+,VC-))} =
++(0,	    2.15E-06)
+*+(0.1,		5.11E-05)
++(0.13,		7.36E-05)
+*+(0.15,		9.81E-05)
++(0.16,		1.20E-04)
+*+(0.17,		1.73E-04)
++(0.18,		4.94E-04)
++(0.2,		5.51E-04)
++(0.375,	6.15E-04)
+*+(10.5,		8.55E-04)
++(20.25,	1.01E-03)
++(24.375,	1.16E-03)
+*+(30,		1.88E-03)
++(34.125,	2.88E-03)
++(37.125,	4.01E-03)
+*+(42.375,	6.85E-03)
++(45,		8.59E-03)
++(67.5,		36.1E-02)
+.ENDS CLAWN_LMx24B_LM2902B
+************************************************************************************************************************
+
+************************************************************************************************************************
+.SUBCKT CLAWP_LMx24B_LM2902B VC+ VC- IOUT+ IOUT-
+****************************************
+* Components
+G1 IOUT+ IOUT- TABLE {(V(VC+,VC-))} =(0, 1.32E-03)(40.81, 2.21E-03)(50, 1.8E-02)
+.ENDS CLAWP_LMx24B_LM2902B
+************************************************************************************************************************
+
+************************************************************************************************************************
+.SUBCKT FEMT_LMx24B_LM2902B 1 2
+****************************************
+* Parameters
+.PARAM FLWF=1E-3
+.PARAM GLFF={PWR(FLWF,0.25)*NLFF/1164}
+.PARAM NLFF=500
+.PARAM NVRF=500
+.PARAM RNVF={1.184*PWR(NVRF,2)}
+****************************************
+* Models
+.MODEL DVNF D (KF={PWR(FLWF,0.5)/1E11} IS=1.0E-16)
+****************************************
+* Components
+D1 7 0 DVNF 
+D2 8 0 DVNF 
+E1 3 6 7 8 {GLFF}
+E2 6 4 5 0 10
+G1 1 2 3 4 1E-6
+I1 0 7 10E-3
+I2 0 8 10E-3
+R1 3 0 1E9 
+R2 3 0 1E9 
+R3 3 6 1E9 
+R4 5 0 {RNVF} 
+R5 5 0 {RNVF} 
+R6 3 4 1E9 
+R7 4 0 1E9 
+.ENDS FEMT_LMx24B_LM2902B
+************************************************************************************************************************
+
+************************************************************************************************************************
+.SUBCKT GR_SRC_LMx24B_LM2902B VC+ VC- IOUT+ IOUT-
+****************************************
+* Parameters
+.PARAM GAIN=1
+.PARAM INEG=-0.02
+.PARAM IPOS=0.02
+****************************************
+* Components
+G1 IOUT+ IOUT- VALUE={LIMIT(GAIN*V(VC+,VC-),INEG,IPOS)}
+.ENDS GR_SRC_LMx24B_LM2902B
+************************************************************************************************************************
+
+************************************************************************************************************************
+.SUBCKT IQ_SRC_LMx24B_LM2902B VC+ VC- IOUT+ IOUT-
+****************************************
+* Parameters
+.PARAM GAIN=1E-3
+****************************************
+* Components
+G1 IOUT+ IOUT- VALUE={IF((V(VC+,VC-)<=0),0,GAIN*V(VC+,VC-))}
+.ENDS IQ_SRC_LMx24B_LM2902B
+************************************************************************************************************************
+
+************************************************************************************************************************
+.SUBCKT LOWER_LEVEL_H1_LMx24B_LM2902B 1 2 3 4
+****************************************
+* Components
+H_H1 3 4 VH_H1 1
+VH_H1 1 2 0V
+.ENDS LOWER_LEVEL_H1_LMx24B_LM2902B
+************************************************************************************************************************
+
+************************************************************************************************************************
+.SUBCKT LOWER_LEVEL_H2_LMx24B_LM2902B 1 2 3 4
+****************************************
+* Components
+H_H2 3 4 VH_H2 -1
+VH_H2 1 2 0V
+.ENDS LOWER_LEVEL_H2_LMx24B_LM2902B
+************************************************************************************************************************
+
+************************************************************************************************************************
+.SUBCKT LOWER_LEVEL_H3_LMx24B_LM2902B 1 2 3 4
+****************************************
+* Components
+H_H3 3 4 VH_H3 -1E3
+VH_H3 1 2 0V
+.ENDS LOWER_LEVEL_H3_LMx24B_LM2902B
+************************************************************************************************************************
+
+************************************************************************************************************************
+.SUBCKT LOWER_LEVEL_S2_LMx24B_LM2902B 1 2 3 4
+****************************************
+* Models
+.MODEL _S2 VSWITCH (ROFF=1T RON=1M VOFF=100M VON=500M)
+****************************************
+* Components
+RS_S2 1 2 1G 
+S_S2 3 4 1 2 _S2
+.ENDS LOWER_LEVEL_S2_LMx24B_LM2902B
+************************************************************************************************************************
+
+************************************************************************************************************************
+.SUBCKT LOWER_LEVEL_S3_LMx24B_LM2902B 1 2 3 4
+****************************************
+* Models
+.MODEL _S3 VSWITCH (ROFF=0.99E12 RON=50 VOFF=400M VON=500M)
+****************************************
+* Components
+RS_S3 1 2 1G 
+S_S3 3 4 1 2 _S3
+.ENDS LOWER_LEVEL_S3_LMx24B_LM2902B
+************************************************************************************************************************
+
+************************************************************************************************************************
+.SUBCKT LOWER_LEVEL_S4_LMx24B_LM2902B 1 2 3 4
+****************************************
+* Models
+.MODEL _S4 VSWITCH (ROFF=0.99E12 RON=50 VOFF=400M VON=500M)
+****************************************
+* Components
+RS_S4 1 2 1G 
+S_S4 3 4 1 2 _S4
+.ENDS LOWER_LEVEL_S4_LMx24B_LM2902B
+************************************************************************************************************************
+
+************************************************************************************************************************
+.SUBCKT LOWER_LEVEL_S5_LMx24B_LM2902B 1 2 3 4
+****************************************
+* Models
+.MODEL _S5 VSWITCH (ROFF=0.99E12 RON=10M VOFF=0 VON=10M)
+****************************************
+* Components
+RS_S5 1 2 1G 
+S_S5 3 4 1 2 _S5
+.ENDS LOWER_LEVEL_S5_LMx24B_LM2902B
+************************************************************************************************************************
+
+************************************************************************************************************************
+.SUBCKT LOWER_LEVEL_S6_LMx24B_LM2902B 1 2 3 4
+****************************************
+* Models
+.MODEL _S6 VSWITCH (ROFF=0.99E12 RON=10M VOFF=0 VON=10M)
+****************************************
+* Components
+RS_S6 1 2 1G 
+S_S6 3 4 1 2 _S6
+.ENDS LOWER_LEVEL_S6_LMx24B_LM2902B
+************************************************************************************************************************
+
+************************************************************************************************************************
+.SUBCKT LOWER_LEVEL_S7_LMx24B_LM2902B 1 2 3 4
+****************************************
+* Models
+.MODEL _S7 VSWITCH (ROFF=0.99E12 RON=50 VOFF=400M VON=500M)
+****************************************
+* Components
+RS_S7 1 2 1T 
+S_S7 3 4 1 2 _S7
+.ENDS LOWER_LEVEL_S7_LMx24B_LM2902B
+************************************************************************************************************************
+
+************************************************************************************************************************
+.SUBCKT LOWER_LEVEL_S8_LMx24B_LM2902B 1 2 3 4
+****************************************
+* Models
+.MODEL _S8 VSWITCH (ROFF=0.99E12 RON=50 VOFF=400M VON=500M)
+****************************************
+* Components
+RS_S8 1 2 1T 
+S_S8 3 4 1 2 _S8
+.ENDS LOWER_LEVEL_S8_LMx24B_LM2902B
+************************************************************************************************************************
+
+************************************************************************************************************************
+.SUBCKT OL_SENSE_LMx24B_LM2902B COM SW+ OLN OLP
+****************************************
+* Components
+GSW+ COM SW+ VALUE = {LIMIT((V(OLN,COM)-9M)*1E3,1,0)+LIMIT((V(OLP,COM)-9M)*1E3,1,0)}
+.ENDS OL_SENSE_LMx24B_LM2902B
+************************************************************************************************************************
+
+************************************************************************************************************************
+.SUBCKT VCM_CLAMP_LMx24B_LM2902B VIN+ VIN- IOUT- IOUT+ VP+ VP-
+****************************************
+* Parameters
+.PARAM GAIN=1
+****************************************
+* Components
+G1 IOUT+ IOUT- VALUE={LIMIT(GAIN*V(VIN+,VIN-),V(VP-,VIN-),V(VP+,VIN-))}
+.ENDS VCM_CLAMP_LMx24B_LM2902B
+************************************************************************************************************************
+
+************************************************************************************************************************
+.SUBCKT VNSE_LMx24B_LM2902B 1 2
+****************************************
+* Parameters
+.PARAM FLW=1
+.PARAM GLF={PWR(FLW,0.25)*NLF/1164}
+.PARAM NLF=70
+.PARAM NVR=38
+.PARAM RNV={1.184*PWR(NVR,2)}
+****************************************
+* Models
+.MODEL DVN D (KF={PWR(FLW,0.5)/1E11} IS=1.0E-16)
+****************************************
+* Components
+D1 7 0 DVN 
+D2 8 0 DVN 
+E1 3 6 7 8 {GLF}
+E2 6 4 5 0 10
+E3 1 2 3 4 1
+I1 0 7 10E-3
+I2 0 8 10E-3
+R1 3 0 1E9 
+R2 3 0 1E9 
+R3 3 6 1E9 
+R4 5 0 {RNV} 
+R5 5 0 {RNV} 
+R6 3 4 1E9 
+R7 4 0 1E9 
+.ENDS VNSE_LMx24B_LM2902B
+************************************************************************************************************************
+
+************************************************************************************************************************
+.SUBCKT ZO_SRC_LMx24B_LM2902B VC+ VC- IOUT+ IOUT-
+****************************************
+* Parameters
+.PARAM GAIN=11
+.PARAM INEG=-4500
+.PARAM IPOS=4500
+****************************************
+* Components
+G1 IOUT+ IOUT- VALUE={LIMIT(GAIN*V(VC+,VC-),INEG,IPOS)}
+.ENDS ZO_SRC_LMx24B_LM2902B
+************************************************************************************************************************
+
